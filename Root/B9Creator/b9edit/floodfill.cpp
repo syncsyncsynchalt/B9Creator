@@ -44,12 +44,12 @@ void floodFill(QImage* pImage, int x, int y, QColor fillColor)
 	// If the pixel we are starting with is already the fill color, we're done
     if (pImage->pixel(x,y) == fillColor.rgb()) return;
 
-	int startcolor = pImage->pixel(x,y);
+    unsigned int startcolor = pImage->pixel(x,y);
 
     // Create the pixel queue.  Assume the worst case where every pixel in the
     // image may be in the queue.
-	int pixelQueueSize = 0;
-	int *pixelQueue= new int[pImage->width() * pImage->height()];
+    unsigned int pixelQueueSize = 0;
+    unsigned int *pixelQueue= new unsigned int[pImage->width() * pImage->height()];
 	
     // Add the start pixel to the queue (we created a single array of ints,
     // even though we are enqueuing two numbers.  We put the y value in the

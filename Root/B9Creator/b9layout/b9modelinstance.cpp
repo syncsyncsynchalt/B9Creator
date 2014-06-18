@@ -281,16 +281,14 @@ void B9ModelInstance::SetBounds(QVector3D newmax, QVector3D newmin)
 //pre-move checking callbacks
 bool B9ModelInstance::OnPosChangeRequest(QVector3D deltaPos)
 {
-
-
+    Q_UNUSED(deltaPos);
     return true;
 }
 
 bool B9ModelInstance::OnScaleChangeRequest(QVector3D deltaScale)
 {
-
+    Q_UNUSED(deltaScale);
     return true;
-
 }
 
 bool B9ModelInstance::OnRotationChangeRequest(QVector3D deltaRot)
@@ -328,6 +326,7 @@ bool B9ModelInstance::OnRotationChangeRequest(QVector3D deltaRot)
 //post move callbacks
 void B9ModelInstance::OnPosChanged(QVector3D deltaPos)
 {
+    Q_UNUSED(deltaPos);
     unsigned int s;
     double maxDepth = -99999.0;
     double depth;
@@ -423,12 +422,12 @@ void B9ModelInstance::OnScaleChanged(QVector3D deltaScale)
 
 void B9ModelInstance::OnRotChanged(QVector3D deltaRot)
 {
-
+    Q_UNUSED(deltaRot);
 }
 
 void B9ModelInstance::OnRotXOrYChanged(QVector3D deltaRot)
 {
-
+    Q_UNUSED(deltaRot);
 }
 void B9ModelInstance::OnRotZChangedOnly(QVector3D deltaRot)
 {

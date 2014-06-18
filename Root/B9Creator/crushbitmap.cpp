@@ -453,10 +453,10 @@ void CrushedPrintJob::streamInCPJ(QDataStream* pIn)
 		mTotalWhitePixels += mSlices[i].getWhitePixels();
 		QRect tExtent =  mSlices[i].getExtents();
         if(mSlices[i].getHeight()<0 || mSlices[i].getWidth()<0)continue;
-		if(mSlices[i].getExtents().left()   < mJobExtents.left()  ) mJobExtents.setLeft(  mSlices[i].getExtents().left()); 
-		if(mSlices[i].getExtents().right()  > mJobExtents.right() ) mJobExtents.setRight( mSlices[i].getExtents().right());
-		if(mSlices[i].getExtents().bottom() > mJobExtents.bottom()) mJobExtents.setBottom(mSlices[i].getExtents().bottom()); 
-		if(mSlices[i].getExtents().top()    < mJobExtents.top()   ) mJobExtents.setTop(   mSlices[i].getExtents().top());
+        if(tExtent.left()   < mJobExtents.left()  ) mJobExtents.setLeft(  tExtent.left());
+        if(tExtent.right()  > mJobExtents.right() ) mJobExtents.setRight( tExtent.right());
+        if(tExtent.bottom() > mJobExtents.bottom()) mJobExtents.setBottom(tExtent.bottom());
+        if(tExtent.top()    < mJobExtents.top()   ) mJobExtents.setTop(   tExtent.top());
 		if(m_Width<mSlices[i].getWidth())m_Width=mSlices[i].getWidth();
 		if(m_Height<mSlices[i].getHeight())m_Height=mSlices[i].getHeight();
 	}
@@ -672,7 +672,7 @@ bool CrushedPrintJob::DeleteSupport(int iSlice, QPoint qCenter, int iRadius){
 	iSlice = iSlice - mBase;
 	//Loop through all supports, if valid for this slice and share same qCenter, remove it
 	for(int i = 0; i<mSupports.size(); i++){
-		if(iSlice >= mSupports[i].getStart() && iSlice <= mSupports[i].getEnd() || iSlice -1 >= mSupports[i].getStart() && iSlice -1 <= mSupports[i].getEnd())
+        if((iSlice >= mSupports[i].getStart() && iSlice <= mSupports[i].getEnd()) || (iSlice -1 >= mSupports[i].getStart() && iSlice -1 <= mSupports[i].getEnd()))
 		{
 			dist = qSqrt(qPow((qCenter.y() - mSupports[i].getPoint().y()),2)+qPow((qCenter.x() - mSupports[i].getPoint().x()),2));
 			if(dist < mindist)

@@ -281,7 +281,7 @@ void SliceSet::SubtractVoidFromFill(QImage *img)
     unsigned int xres = projectData->GetResolution().x();
     unsigned int yres = projectData->GetResolution().y();
     QRgb pickedcolor;
-    int x,y;
+    unsigned int x,y;
 
     for(x = 0; x < xres; x++)
     {

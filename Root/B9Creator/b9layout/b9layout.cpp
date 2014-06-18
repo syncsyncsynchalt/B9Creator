@@ -60,7 +60,7 @@
 //////////////////////////////////////////////////////
 B9Layout::B9Layout(QWidget *parent, Qt::WFlags flags) : QMainWindow(parent, flags)
 {
-	ui.setupUi(this);
+    ui.setupUi(this);
 
 
 	//Initialize project data
@@ -363,8 +363,8 @@ void B9Layout::SetAttachmentSurfaceThickness(QString num)
 
 void B9Layout::UpdateBuildSpaceUI()
 {
-    int pixi;
-    int proi;
+    int pixi = 0;
+    int proi = 0;
 
     //pixel sizes
     if(project->GetPixelSize() == 50)
@@ -617,6 +617,7 @@ void B9Layout::UpdateInterface()
         }
 
         if(pWorldView->GetTool() == "SUPPORTMODIFY")
+        {
             if(currSelectedSupports.size() <= 0)//no items selected.
             {
                ui.supportInformationBox->hide();
@@ -634,6 +635,7 @@ void B9Layout::UpdateInterface()
 
                 PushSupportProperties();
             }
+        }
 
         //fill the base plate gui region
         PushBasePlateProperties();
@@ -1391,7 +1393,8 @@ void B9Layout::FillSupportList()
 
 void B9Layout::UpdateSupportList()
 {
-    unsigned int i, j;
+    int i;
+    unsigned int j;
     QListWidgetItem* cItem = NULL;
     B9SupportStructure* cSup = NULL;
     std::vector<B9SupportStructure*>* selSups = GetSelectedSupports();
@@ -1420,7 +1423,7 @@ void B9Layout::UpdateSupportList()
 B9SupportStructure* B9Layout::FindSupportByName(QString name)
 {
     unsigned int s;
-    unsigned int searchNum = name.remove("Support ").toInt();
+    int searchNum = name.remove("Support ").toInt();
     std::vector<B9SupportStructure*> supList;
 
     if(!currInstanceInSupportMode)
@@ -1487,7 +1490,7 @@ B9ModelInstance* B9Layout::SupportModeInst()
 void B9Layout::SelectSupport(B9SupportStructure* sup)
 {
     //first see if the support is already selected, we dont want duplicates.
-    int i;
+    unsigned int i;
     for(i = 0; i < currSelectedSupports.size(); i++)
     {
         if(sup == currSelectedSupports[i])
@@ -2613,6 +2616,7 @@ void B9Layout::closeEvent ( QCloseEvent * event )
 }
 void B9Layout::contextMenuEvent(QContextMenuEvent *event)
 {
+    Q_UNUSED(event);
     /*
         QMenu menu(this);
         menu.addAction(ui.actionDelete);

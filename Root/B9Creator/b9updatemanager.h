@@ -41,7 +41,7 @@ private:
     QList<B9UpdateEntry> remoteEntries;
     QList<B9UpdateEntry> localEntries;
     QList<B9UpdateEntry> updateEntries;
-    unsigned int currentUpdateIndx;//the index of updateEntries that we are currently expecting
+    int currentUpdateIndx;//the index of updateEntries that we are currently expecting
 
     QNetworkAccessManager* netManager;
     QNetworkReply* currentReply;//pointer that represents the current download

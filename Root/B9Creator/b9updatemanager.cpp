@@ -716,7 +716,7 @@ void B9UpdateManager::TransitionFromPreviousVersions()
 //returns -2 if the file does not exist and is not in the manifest!
 int B9UpdateManager::GetLocalFileVersion(QString filename)
 {
-    unsigned int i;
+    int i;
 
     B9UpdateManager tempManager;
 

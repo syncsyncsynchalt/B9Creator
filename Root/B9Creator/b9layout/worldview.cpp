@@ -906,6 +906,7 @@ void WorldView::keyReleaseEvent( QKeyEvent * event )
 
 void WorldView::OnToolInitialAction(QString tool, QMouseEvent* event)
 {
+    Q_UNUSED(tool); // this argument probobly means the private member 'currtool'
     B9ModelInstance* clickedInst = NULL;
     Triangle3D* pTopTri = NULL;
     Triangle3D* pBottomTri = NULL;
@@ -1064,6 +1065,7 @@ void WorldView::OnToolInitialAction(QString tool, QMouseEvent* event)
 
 void WorldView::OnToolDragAction(QString tool, QMouseEvent* event)
 {
+    Q_UNUSED(tool); // this argument probobly means the private member 'currtool'
     unsigned int i;
     B9ModelInstance* pInst;
     B9SupportStructure* pSup;
@@ -1322,6 +1324,8 @@ void WorldView::OnToolDragAction(QString tool, QMouseEvent* event)
 
 void WorldView::OnToolReleaseAction(QString tool, QMouseEvent* event)
 {
+    Q_UNUSED(tool); // this argument probobly means the private member 'currtool'
+    Q_UNUSED(event);
     B9SupportStructure* pSup;
 
 

@@ -86,14 +86,14 @@ void DrawingContext::GenerateLogicImage()
 	if(pActiveImage == NULL || pLowerImage == NULL)
 		return;
 
-	int x;
-	int y;
-    int white = QColor(255,255,255).rgb();
-    int grey = QColor(190,190,190).rgb();
-    int black = QColor(0,0,0).rgb();
-    int red = QColor(255,0,0).rgb();
-	int width = pActiveImage->width();
-	int height = pActiveImage->height();
+    unsigned int x;
+    unsigned int y;
+    unsigned int white = QColor(255,255,255).rgb();
+    unsigned int grey = QColor(190,190,190).rgb();
+    unsigned int black = QColor(0,0,0).rgb();
+    unsigned int red = QColor(255,0,0).rgb();
+    unsigned int width = pActiveImage->width();
+    unsigned int height = pActiveImage->height();
 	
 	
 	
@@ -119,13 +119,13 @@ void DrawingContext::GenerateGreenImage()
 {
 	if(pActiveImage == NULL || pLowerImage == NULL)
 		return;
-	int x;
-	int y;
-    int white = QColor(255,255,255).rgb();
-    int black = QColor(0,0,0).rgb();
-    int green = QColor(0,100,0).rgb();
-	int width = pActiveImage->width();
-	int height = pActiveImage->height();
+    unsigned int x;
+    unsigned int y;
+    unsigned int white = QColor(255,255,255).rgb();
+    unsigned int black = QColor(0,0,0).rgb();
+    unsigned int green = QColor(0,100,0).rgb();
+    unsigned int width = pActiveImage->width();
+    unsigned int height = pActiveImage->height();
 
 	for(x=0;x<width;x++)
 	{
@@ -179,10 +179,10 @@ void DrawingContext::mousePressEvent(QMouseEvent *event)
 		 {
 			 if(pEditView->currSlice < pEditView->pCPJ->getBase())
 			 {
-				 QMessageBox::StandardButton ret;
-					ret = QMessageBox::warning(this, tr("Slice Manager"),
+                 // QMessageBox::StandardButton ret;
+                    /*ret = */QMessageBox::warning(this, tr("Slice Manager"),
 					tr("Can't Edit Base Slices"), QMessageBox::Ok);
-					return;
+                    return;
 			 }
 			 if(pEditView->supportMode)
 			 {
