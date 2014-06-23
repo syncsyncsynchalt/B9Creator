@@ -75,7 +75,7 @@ b9PrinterModelData* b9PrinterModelManager::AddPrinterData(QString modelName)
 
 void b9PrinterModelManager::ImportDefinitions(QString defFilePath)
 {
-
+    Q_UNUSED(defFilePath);
 }
 
 

@@ -192,6 +192,8 @@ void CALLBACK tessVertexCB(const GLvoid *data, void *user_data)
 void CALLBACK tessCombineCB(const GLdouble newVertex[3], const GLdouble *neighborVertex[4],
                             const GLfloat neighborWeight[4], GLdouble **outData, void* user_data)
 {
+    Q_UNUSED(neighborVertex);
+    Q_UNUSED(neighborWeight);
     B9Tesselator* tess = (B9Tesselator*)user_data;
 
 
@@ -227,6 +229,7 @@ void CALLBACK tessEndCB()
 
 void CALLBACK tessErrorCB(GLenum errorCode, void* user_data)
 {
+    Q_UNUSED(errorCode);
     B9Tesselator* tess = (B9Tesselator*)user_data;
     qDebug() << "onTessError";
     tess->errorAcumulations++;
