@@ -206,7 +206,7 @@ win32{
 RC_FILE = WindowsResources/b9c_win_resources.rc
 
 #In windows this application needs elevated privileges to do self updates.
-QMAKE_LFLAGS += /MANIFESTUAC:\"level=\'requireAdministrator\' uiAccess=\'false\'\"
+#QMAKE_LFLAGS += /MANIFESTUAC:\"level=\'requireAdministrator\' uiAccess=\'false\'\"
 
 TARGET = B9Creator
 
