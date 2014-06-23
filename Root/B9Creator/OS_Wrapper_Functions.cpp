@@ -49,7 +49,7 @@
 
 
 #ifdef Q_OS_WIN
-    #include "Windows.h"
+    #include "windows.h"
 #endif
 
 
@@ -60,6 +60,7 @@ QString CROSS_OS_GetSaveFileName(QWidget * parent,
                                  const QString & filter,
                                  const QStringList & saveAbleExtensions)
 {
+    Q_UNUSED(saveAbleExtensions);
     QString saveFileName;
 
     #ifdef Q_OS_LINUX
