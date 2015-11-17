@@ -49,6 +49,7 @@
 
 
 #ifdef Q_OS_WIN
+    #define WINVER 0x0601
     #include "windows.h"
 #endif
 
